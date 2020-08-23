@@ -47,23 +47,23 @@ age >= 18
   ? console.log(fN + " drinks beer.")
   : console.log(fN + " drinks juice.");
 
-  switch (true) {
-    case age < 13:
-        console.log(firstName + ' is a boy.');
-        break;
-    case age >= 13 && age < 20:
-        console.log(firstName + ' is a teenager.');
-        break;
-    case age >= 20 && age < 30:
-        console.log(firstName + ' is a young man.');
-        break;
-    default:
-        console.log(firstName + ' is a man.');
+switch (true) {
+  case age < 13:
+    console.log(firstName + " is a boy.");
+    break;
+  case age >= 13 && age < 20:
+    console.log(firstName + " is a teenager.");
+    break;
+  case age >= 20 && age < 30:
+    console.log(firstName + " is a young man.");
+    break;
+  default:
+    console.log(firstName + " is a man.");
 }
 
 /*****************************
-* Truthy and Falsy values and equality operators
-*/
+ * Truthy and Falsy values and equality operators
+ */
 // falsy values: undefined, null, 0, '', NaN
 // truthy values: NOT falsy values
 
@@ -72,14 +72,14 @@ var height;
 height = 23;
 
 if (height || height === 0) {
-    console.log('Variable is defined');
+  console.log("Variable is defined");
 } else {
-    console.log('Variable has NOT been defined');
+  console.log("Variable has NOT been defined");
 }
 
 // Equality operators
-if (height === '23') {
-    console.log('The == operator does type coercion!');
+if (height === "23") {
+  console.log("The == operator does type coercion!");
 }
 
 var scoreJohn = (189 + 120 + 103) / 3;
@@ -88,19 +88,62 @@ var scoreMary = (97 + 134 + 105) / 3;
 console.log(scoreJohn, scoreMike, scoreMary);
 
 if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
-    console.log('John\'s team wins with ' + scoreJohn + ' points');
+  console.log("John's team wins with " + scoreJohn + " points");
 } else if (scoreMike > scoreJohn && scoreMike > scoreMary) {
-    console.log('Mike\'s team wins with ' + scoreMike + ' points');
+  console.log("Mike's team wins with " + scoreMike + " points");
 } else if (scoreMary > scoreJohn && scoreMary > scoreMike) {
-    console.log('Mary\'s team wins with ' + scoreMary + ' points');
+  console.log("Mary's team wins with " + scoreMary + " points");
 } else {
-    console.log('There is a draw');
+  console.log("There is a draw");
 }
 
 if (scoreJohn > scoreMike) {
-    console.log('John\'s team wins with ' + scoreJohn + ' points');
+  console.log("John's team wins with " + scoreJohn + " points");
 } else if (scoreMike > scoreJohn) {
-    console.log('Mike\'s team wins with ' + scoreMike + ' points');
+  console.log("Mike's team wins with " + scoreMike + " points");
 } else {
-    console.log('There is a draw');
+  console.log("There is a draw");
 }
+
+// Functions
+
+function calculateAge(birthYear) {
+  return 2018 - birthYear;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1948);
+var ageJane = calculateAge(1969);
+console.log(ageJohn, ageMike, ageJane);
+
+function Retirement(year, firstName) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+  console.log(firstName, retirement);
+}
+
+Retirement(1990, "John");
+
+/*****************************
+* Function Statements and Expressions
+*/
+// Function declaration
+// function whatDoYouDo(job, firstName) {}
+
+// Function expression
+var whatDoYouDo = function(job, firstName) {
+    switch(job) {
+        case 'teacher':
+            return firstName + ' teaches kids how to code';
+        case 'driver':
+            return firstName + ' drives a cab in Lisbon.'
+        case 'designer':
+            return firstName + ' designs beautiful websites';
+        default:
+            return firstName + ' does something else';
+    }
+}
+
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('designer', 'Jane'));
+console.log(whatDoYouDo('retired', 'Mark'));
